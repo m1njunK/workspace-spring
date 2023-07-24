@@ -1,0 +1,36 @@
+package com.bitc.controller.home;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class SampleController {
+	
+	// /WEB-INF/views/ + "doA" + ".jsp"
+	@RequestMapping("doA")
+	public void doA() {
+		System.out.println("doA 호출");
+	}
+	@RequestMapping("doB")
+	public String doB() {
+		System.out.println("doB 호출");
+		return "home";
+	}
+	@RequestMapping("doC")
+	public String doC(HttpServletRequest request) {
+		System.out.println("doC 호출");
+		request.setAttribute("modelTest", "doC test");
+		return "home";
+	}
+	@RequestMapping(value="doD", method=RequestMethod.GET)
+	public String doD(@RequestParam(name="msg") String message,Model model) {
+		System.out.println("doD 호출 -"  + message);
+		model.addAttribute("msg",message);
+		return "result";
+	}
+}
