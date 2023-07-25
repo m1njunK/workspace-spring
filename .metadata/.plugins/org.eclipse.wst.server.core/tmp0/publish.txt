@@ -1,3 +1,2 @@
 #Tomcat publish data
-#Mon Jul 24 16:12:45 KST 2023
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\admin\\.m2\\repository\\org\\springframework\\spring-web\\5.3.29\\spring-web-5.3.29.jar=WEB-INF/lib/spring-web-5.3.29.jar
+#Tue Jul 25 16:21:52 KST 2023

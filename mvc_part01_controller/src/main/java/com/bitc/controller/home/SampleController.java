@@ -4,9 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bitc.vo.ProductVO;
 
@@ -69,5 +72,20 @@ public class SampleController {
 		// key : productVO
 		model.addAttribute(vo);
 		return "product";
+	}
+	
+	//@RequestMapping(value="productWriteSubmit", method=RequestMethod.POST)
+	@PostMapping("productWriteSubmit")
+	public ModelAndView productWriteSubmit(ModelAndView mav, ProductVO prod) {
+		// mav.addObject("productVO",prod);
+		mav.addObject(prod);
+		mav.addObject("product",prod);
+		mav.setViewName("product");
+		return mav;
+	}
+	
+	@GetMapping("redirect")
+	public String redirect() {
+		return "redirect:main.home";
 	}
 }

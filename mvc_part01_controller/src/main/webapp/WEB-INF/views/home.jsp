@@ -33,5 +33,14 @@
 	<input type="number" name="price" required/>
 	<input type="submit" value="PRODUCT WRITE"/>
 </form>
+<hr/>
+<h2>product submit</h2>
+<form action="productWriteSubmit" method="POST">
+	<input type="text" name="name" required/>
+	<input type="number" name="price" required/>
+	<input type="submit" value="PRODUCT WRITE"/>
+</form>
+<hr/>
+<a href="redirect">redirect</a>
 </body>
 </html>
