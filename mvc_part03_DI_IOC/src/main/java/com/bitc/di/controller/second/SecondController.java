@@ -19,7 +19,7 @@ public class SecondController {
 	private String path;
 	
 	
-	//@Inject
+	// @Inject
 	@Autowired(required=false)
 	TestService ts;
 	
