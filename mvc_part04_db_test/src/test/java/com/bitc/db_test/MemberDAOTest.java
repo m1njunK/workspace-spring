@@ -1,5 +1,7 @@
 package com.bitc.db_test;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,25 +20,46 @@ public class MemberDAOTest{
 	
 	@Autowired
 	MemberDAO md;
+	
+	Integer num;
 
 	@Before
 	public void init() {
 		System.out.println("memberDAO : " + md);
+		num = md.readMax();
+		if(num == null) {
+			num = 1;
+		}else {
+			num = num + 1;
+		}
 	}
-	
-//	@Test
-//	public void testInsertMember() {
-//		MemberVO member = new MemberVO();
-//		member.setUserid("id001");
-//		member.setUserpw("pw001");
-//		member.setUsername("김진우");
-//		int result = md.insertMember(member);
-//		System.out.println("insertMember result = " + result);
-//	}
+
+	@Test
+	public void testInsertMember() {
+		MemberVO member = new MemberVO();
+		member.setUserid("id00"+num);
+		member.setUserpw("pw00"+num);
+		member.setUsername("김진우"+num+"호");
+		int result = md.insertMember(member);
+		System.out.println("insertMember result = " + result);
+	}
 	
 	@Test
 	public void testReadMember() {
-		MemberVO member = md.readMember("id001");
+		MemberVO member = md.readMember("id006");
 		System.out.println(member);
+	}
+	
+	@Test
+	public void testReaddMember() {
+		MemberVO memberWithPass = md.readMemberWithPass("id002", "pw002");
+		System.out.println("memberWithPass : " + memberWithPass);
+		System.out.println("============================================");
+		List<MemberVO> memberList = md.readmemberList();
+		for(MemberVO vo : memberList) {
+			System.out.println(vo);
+		}
+		int max = md.readMax();
+		System.out.println("maxNumber : " + max);
 	}
 }

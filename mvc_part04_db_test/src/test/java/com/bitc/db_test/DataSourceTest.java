@@ -30,7 +30,7 @@ public class DataSourceTest {
 	SqlSessionFactory sqlSessionFactory;
 	
 	@Test
-	public void testFactoru() {
+	public void testFactory() {
 		SqlSession session = sqlSessionFactory.openSession();
 		System.out.println(session);
 	}

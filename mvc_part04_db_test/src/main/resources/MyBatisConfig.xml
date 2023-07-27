@@ -7,5 +7,10 @@
 PUBLIC "-//mybatis.org//DTD config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
+<typeAliases>
+	<typeAlias type="com.bitc.db_test.vo.MemberVO" alias="member"/>
+</typeAliases>
+	<mappers>
+		<mapper resource="sql/memberMapper.xml"/>			
+	</mappers>
 </configuration>
