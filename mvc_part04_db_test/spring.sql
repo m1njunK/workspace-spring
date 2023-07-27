@@ -12,3 +12,5 @@ CREATE TABLE IF NOT EXISTS tbl_member(
 );
 
 DESC tbl_member;
+
+select * from tbl_member;
