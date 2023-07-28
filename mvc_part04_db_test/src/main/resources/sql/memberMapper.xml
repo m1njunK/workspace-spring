@@ -13,16 +13,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	parameterType="member">
 		INSERT INTO tbl_member
 		VALUES(null,#{userid},#{userpw},#{username},now(),now())			
-	</insert>
-	<select id="read" parameterType="java.lang.String" resultType="member">
+	</insert> <!-- int 반환(executeUpdate()) resultType 몬씀 -->
+	
+	<!-- java.lang.String -->
+	<select id="read" parameterType="String" resultType="member">
 		SELECT * FROM tbl_member WHERE userid = #{userid}
 	</select>
+	
+	<!-- java.util.Map -->
 	<select id="readWithPass" parameterType="Map" resultType="member">
 		SELECT * FROM tbl_member WHERE userid = #{id} AND userpw = #{pw}
 	</select>
+	
+	<!-- selectList의 경우 List의 제네릭 타입을 resultType에 지정 -->	
 	<select id="memberList" resultType="member">
 		SELECT * FROM tbl_member
 	</select>
+
 	<select id="max" resultType="int">
 		SELECT max(uno) FROM tbl_member;
 	</select>
