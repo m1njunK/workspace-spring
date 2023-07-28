@@ -2,17 +2,52 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-	<!-- Web Application Server 에 Filter 등록 -->
-	<filter>
+	<!-- spring encoding filter -->
+<!-- 	<filter>
 		<filter-name>encodingFilter</filter-name>
-		<filter-class>com.bitc.filter.filters.EncodingFilter</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>		
-	</filter-mapping>
+	</filter-mapping> -->
 	
+ 	<filter>
+		<filter-name>printLogFilter</filter-name>
+		<filter-class>com.bitc.filter.filters.PrintFilter</filter-class>
+		<init-param>
+			<param-name>printDir</param-name>
+			<param-value>/log</param-value>
+		</init-param>
+		<init-param>
+			<param-name>printFile</param-name>
+			<param-value>filterLog.log</param-value>
+		</init-param>
+	</filter> 
+	<!-- Web Application Server 에 Filter 등록 -->
+ 	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>com.bitc.filter.filters.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	 
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>		
+	</filter-mapping>
+	 
+ 	<filter-mapping>
+		<filter-name>printLogFilter</filter-name>
+		<url-pattern>/*</url-pattern>		
+	</filter-mapping>
+	 
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
