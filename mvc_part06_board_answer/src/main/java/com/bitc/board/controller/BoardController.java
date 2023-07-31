@@ -1,14 +1,27 @@
 package com.bitc.board.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bitc.board.service.BoardService;
+import com.bitc.board.vo.BoardVO;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequestMapping("/board/*")
+@RequiredArgsConstructor
 public class BoardController {
+	
+	@Autowired
+	private final BoardService bs;
 	
 	/* "게시글 작성 페이지 요청" */
 	// @RequestMapping(value="/register",method=RequestMethod.GET)
-	@GetMapping("board/register")
+	@GetMapping("register")
 	public void register()throws Exception{
 		// /board/register
 		// WEB-INF/views/board/register.jsp
@@ -19,7 +32,12 @@ public class BoardController {
 	 * 게시글 등록 요청 처리 추가
 	 */
 	// @PostMapping("board/register")
-	
+	@PostMapping("register")
+	public String registerPost(BoardVO vo) throws Exception{
+		System.out.println("board/register POST 요청");
+		String result = bs.regist(vo);
+		return "redirect:/";
+	}
 	
 	/**
 	 * 게시글 상세보기 요청 처리 - 게시글 번호

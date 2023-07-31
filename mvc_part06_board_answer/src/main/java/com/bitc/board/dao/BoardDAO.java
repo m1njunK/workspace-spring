@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.bitc.board.util.Criteria;
 import com.bitc.board.vo.BoardVO;
 
-@Mapper
+/*@Mapper*/
 public interface BoardDAO{
 	
 	// 게시글 작성
