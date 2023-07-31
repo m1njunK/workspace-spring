@@ -48,7 +48,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public String remove(int bno) throws Exception {
-		return null;
+		return dao.delete(bno) == 1 ? "SUCCESS" : "FAILED";
 	}
 
 	@Override

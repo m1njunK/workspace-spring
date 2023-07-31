@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	// 게시글 삭제
 	int delete(int bno) throws Exception; 
 	-->
-	<delete id="remove" parameterType="int">
+	<delete id="delete" parameterType="int">
 		DELETE FROM tbl_board WHERE bno = #{bno}
 	</delete>
 	<!-- 

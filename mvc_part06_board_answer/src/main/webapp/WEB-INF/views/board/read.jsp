@@ -59,6 +59,16 @@
 				formObj.attr("method","get");
 				formObj.submit();
 			});
+			
+			// 게시글 삭제요청
+			$("#remove").click((e)=>{
+				e.preventDefault();
+				let conf = confirm("복구못한다. 삭제?");
+				if(conf){
+					formObj.attr("action","remove");
+					formObj.submit();
+				}
+			});
 		});
 	</script>
 </body>

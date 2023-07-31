@@ -86,16 +86,30 @@ public class BoardController {
 	 */
 	// @PostMapping("board/modify")
 	@PostMapping("modify")
-	public String modify(BoardVO vo) throws Exception{
+	public String modify(
+			RedirectAttributes rttr,
+			BoardVO vo,
+			Criteria cri) throws Exception{
 		String result = bs.modify(vo);
-		
-		return "redirect:/board/readPage";
+		rttr.addFlashAttribute("result",result);
+		rttr.addFlashAttribute("cri",cri);
+		// get 방식으로 전달해준다 ?bno=?
+		rttr.addAttribute("bno",vo.getBno());
+		return "redirect:/board/readPage";  // ?bno="+vo.getBno();
 	}
 
 	/**
 	 * 게시글 삭제 완료 후 listPage 페이지 로 이동 - redirect 
 	 */
-	 // @GetMapping("board/remove")
+	 // @PostMapping("board/remove")
+	@PostMapping("remove")
+	public String remove(int bno,Criteria cri,RedirectAttributes rttr) throws Exception{
+		String result = bs.remove(bno);
+		rttr.addFlashAttribute("result",result);
+		rttr.addAttribute("page",cri.getPage());
+		rttr.addAttribute("perPageNum",cri.getPerPageNum());
+		return "redirect:/board/listPage"; 
+	}
 	
 	/**
 	 *  페이징 처리 된 게시글 출력 페이지
