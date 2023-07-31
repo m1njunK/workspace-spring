@@ -22,7 +22,8 @@ public class BoardServiceImpl implements BoardService {
 		String message = null;
 		int result = bd.create(board);
 		if(result > 0) {
-			message = "redirect:/board/listPage";
+			message = "<script>alert('게시글 작성 완료');location.href='listPage';</script>";
+					/*"redirect:/board/listPage";*/
 		}
 		return message;
 	}

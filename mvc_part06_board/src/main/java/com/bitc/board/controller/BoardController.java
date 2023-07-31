@@ -36,9 +36,10 @@ public class BoardController {
 	 * @throws Exception 
 	 */
 	@PostMapping("board/register")
-	public String registerSubmit(String title, String content, String writer, BoardVO board) throws Exception {
-		String message = bs.regist(board);
-		return message;
+	public String registerSubmit(String title, String content, String writer, BoardVO board,Model model) throws Exception {
+		model.addAttribute("msg",bs.regist(board));
+		/*String message = bs.regist(board);*/
+		return "home";
 	}
 	
 	/**

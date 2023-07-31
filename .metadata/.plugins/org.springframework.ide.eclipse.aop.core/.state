@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="mvc_part03_DI_IOC"/>
+<aop-project name="mvc_part06_board_answer"/>
 <aop-project name="mvc_part02_lombok"/>
 <aop-project name="mvc_part01_structure"/>
 <aop-project name="mvc_part01_controller"/>
