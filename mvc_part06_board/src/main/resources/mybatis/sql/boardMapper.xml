@@ -18,6 +18,22 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<update id="update">
 		UPDATE tbl_board SET title = #{title},content = #{content}, writer = #{writer} WHERE bno = #{bno}
 	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM tbl_board WHERE bno = #{bno}
+	</delete>
+	
+	<update id="updateCnt" parameterType="int">
+		UPDATE tbl_board SET viewCnt = viewCnt + 1 WHERE bno = #{bno}
+	</update>
+	
+	<select id="total" resultType="int">
+		SELECT count(*) FROM tbl_board
+	</select>
+	
+	<select id="criList" resultType="BoardVO" parameterType="Map">
+		SELECT * FROM tbl_board ORDER BY bno DESC LIMIT #{startRow},#{perPageNum}
+	</select>
 </mapper>
 
 

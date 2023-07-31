@@ -1,6 +1,8 @@
 package com.bitc.board.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -36,12 +38,13 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int delete(int bno) throws Exception {
-		return 0;
+		int result = session.delete("boardMapper.delete",bno);
+		return result;
 	}
 
 	@Override
 	public void updateCnt(int bno) throws Exception {
-
+		session.update("boardMapper.updateCnt",bno);
 	}
 
 	@Override
@@ -52,12 +55,17 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int totalCount() throws Exception {
-		return 0;
+		int cnt = session.selectOne("boardMapper.total");
+		return cnt;
 	}
 
 	@Override
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
-		return null;
+		Map<String,Integer> map = new HashMap<>();
+		map.put("startRow", cri.getStartRow());
+		map.put("perPageNum",cri.getPerPageNum());
+		List<BoardVO> list = session.selectList("boardMapper.criList",map);
+		return list;
 	}
 
 }

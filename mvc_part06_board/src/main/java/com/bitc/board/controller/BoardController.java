@@ -2,12 +2,16 @@ package com.bitc.board.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bitc.board.service.BoardService;
+import com.bitc.board.util.Criteria;
+import com.bitc.board.util.PageMaker;
 import com.bitc.board.vo.BoardVO;
 
 import lombok.RequiredArgsConstructor;
@@ -44,6 +48,7 @@ public class BoardController {
 	@GetMapping("board/read")
 	public void readPage (int bno,Model model) throws Exception {
 		BoardVO board = bs.read(bno);
+		bs.updateCnt(bno);
 		model.addAttribute(board);
 	}
 	/**
@@ -70,9 +75,13 @@ public class BoardController {
 
 	/**
 	 * 게시글 삭제 완료 후 listPage 페이지 로 이동 - redirect 
+	 * @throws Exception 
 	 */
-	 // @GetMapping("board/remove")
-	
+	@GetMapping("board/remove")
+	public String remove(int bno) throws Exception {
+		
+		return bs.remove(bno);
+	}
 	/**
 	 *  페이징 처리 된 게시글 출력 페이지
 	 *  param : 요청 page, perPageNum 
@@ -80,10 +89,15 @@ public class BoardController {
 	 */
 	// board/listPage
 	@GetMapping("board/listPage")
-	public void listPage(Model model) throws Exception {
-		System.out.println("리스트로 간다");
-		List<BoardVO> list = bs.listAll();
+	public void listPage(Integer page, Criteria cri, Model model) throws Exception {
+		List<BoardVO> list;
+		if(page == null) {
+			page = 1;
+		}
+		list = bs.listCriteria(cri);
+		PageMaker pm = bs.getPageMaker(cri);
 		model.addAttribute("list",list);
+		model.addAttribute("pm",pm);
 	}
 	
 }

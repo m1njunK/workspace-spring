@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class BoardServiceImpl implements BoardService {
 
 	private final BoardDAO bd;
-	
+		
 	@Override
 	public String regist(BoardVO board) throws Exception {
 		String message = null;
@@ -29,7 +29,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void updateCnt(int bno) throws Exception {
-
+		bd.updateCnt(bno);
 	}
 
 	@Override
@@ -55,17 +55,23 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public String remove(int bno) throws Exception {
+		int result = bd.delete(bno);
+		if(result > 0) {
+			return "redirect:/board/listPage";
+		}
 		return null;
 	}
 
 	@Override
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
-		return null;
+		List<BoardVO> list = bd.listCriteria(cri);
+		return list;
 	}
 
 	@Override
 	public PageMaker getPageMaker(Criteria cri) throws Exception {
-		return null;
+		PageMaker pm = new PageMaker(cri,bd.totalCount());
+		return pm;
 	}
 
 }

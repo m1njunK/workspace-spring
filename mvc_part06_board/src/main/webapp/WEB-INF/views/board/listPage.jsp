@@ -24,7 +24,7 @@
 		<c:forEach var="board" items="${list}">
 			<tr>
 				<td>${board.bno}</td>
-				<td><a href="read?Page=${pm.mkQueryStr(pm.cri.page)}&bno=${board.bno}">${board.title}</a></td>
+				<td><a href="read${pm.mkQueryStr(pm.cri.page)}&bno=${board.bno}">${board.title}</a></td>
 				<td>${board.writer}</td>
 				<td><f:formatDate pattern="yyyy-MM-dd HH:mm" 
 					              value="${board.regdate}"/></td>
