@@ -26,13 +26,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void updateCnt(int bno) throws Exception {
-
+		dao.updateCnt(bno);
 	}
 
 	@Override
 	public BoardVO read(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		BoardVO vo = dao.read(bno);
+		return vo;
 	}
 
 	@Override
@@ -42,7 +42,8 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public String modify(BoardVO board) throws Exception {
-		return null;
+		int result = dao.update(board);
+		return (result != 0) ? "SUCCESS" : "FAILED";
 	}
 
 	@Override
@@ -52,12 +53,17 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> listCriteria(Criteria cri) throws Exception {
-		return null;
+		// database 에서 criteria 정보를 이용하여
+		// 사용자가 요청한 페이지에 따라 게시글 목록 검색하여 전달
+		return dao.listCriteria(cri);
 	}
 
 	@Override
 	public PageMaker getPageMaker(Criteria cri) throws Exception {
-		return null;
+		// criteria 요청한 페이지 정보에 따라 페이징 블럭 정보를 저장하는
+		// PageMaker 객체 반환
+		int totalCount = dao.totalCount();
+		return new PageMaker(cri,totalCount);
 	}
 
 }

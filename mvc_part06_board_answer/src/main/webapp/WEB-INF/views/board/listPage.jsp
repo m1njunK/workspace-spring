@@ -7,6 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>listPage.jsp</title>
+<script>
+	var result = '${result}';
+	if(result != ''){
+		alert(result);
+	}
+</script>
 </head>
 <body>
 	<!-- model : list, pm -->

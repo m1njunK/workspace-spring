@@ -7,11 +7,13 @@
 <title>modify.jsp</title>
 </head>
 <body>
-	<h3>MODIFY BAORD</h3>
+	<h3>MODIFY BAORD- ${criteria}</h3>
 	<!-- model boardVO -->
 	<!-- board/modify POST -->
 	<form method="POST">
 		<input type="hidden" name="bno" value="${boardVO.bno}"/>
+		<input type="hidden" name="page" value="${criteria.page}"/>
+		<input type="hidden" name="perPageNum" value="${criteria.perPageNum}"/>
 		<div>
 			<label>TITLE</label>
 			<input type="text" name="title" value="${boardVO.title}" />
@@ -26,7 +28,7 @@
 		</div>
 		<div>	
 			<input type="submit" value="수정 완료"/>
-			<a href="listAll">LIST</a>
+			<a href="listPage?page=${criteria.page}&perPageNum=${criteria.perPageNum}">LIST</a>
 		</div>
 	</form>
 </body>

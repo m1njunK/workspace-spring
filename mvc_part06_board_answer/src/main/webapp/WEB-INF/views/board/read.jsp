@@ -22,15 +22,44 @@
 			<input type="text" name="writer" value="${boardVO.writer}" readonly/>
 		</div>
 		<div>
-			<a href="modify?bno=${boardVO.bno}">MODIFY</a> |
-			<a href="remove?bno=${boardVO.bno}">DELETE</a> |
-			<a href="listPage">LIST</a>
+			<a href="" id="modify">MODIFY</a> |
+			<a href="" id="remove">DELETE</a> |
+			<a href="" id="list">LIST</a>
 		</div>
+		<form id="submitForm" method="POST">
+			<input type="hidden" name="bno" value="${boardVO.bno}" />
+			<input type="hidden" name="page" value="${cri.page}" />
+			<input type="hidden" name="perPageNum" value="${cri.perPageNum}" />
+		</form>
 	<script>
 		var result = '${result}';
 		if(result != null && result != ''){
 			alert(result);
 		}
+	</script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script>
+		// 문서가 모두 로드 되었을 때...
+		$(function(){
+			
+			var formObj = $("#submitForm");
+			
+			$("#list").click(function(e){
+				e.preventDefault();
+				$("input[name='bno']").remove();
+				formObj.attr("action","listPage");
+				formObj.attr("method","GET");
+				formObj.submit();
+			});
+			
+			// 수정 페이지 요청 
+			$("#modify").click(function(e){
+				e.preventDefault();
+				formObj.attr("action","modify");
+				formObj.attr("method","get");
+				formObj.submit();
+			});
+		});
 	</script>
 </body>
 </html>
