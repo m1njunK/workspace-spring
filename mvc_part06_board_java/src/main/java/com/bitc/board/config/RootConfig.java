@@ -3,6 +3,7 @@ package com.bitc.board.config;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
+import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -71,5 +72,5 @@ public class RootConfig {
 //		sqlSessionFactory.setMapperLocations(res);
 		return sqlSessionFactory.getObject();
 	}
-	
+	SQL sql = new SQL();
 }
