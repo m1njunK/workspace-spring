@@ -7,7 +7,6 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/resources/context/mvc/servlet-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

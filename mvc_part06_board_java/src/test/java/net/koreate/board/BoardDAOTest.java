@@ -26,6 +26,6 @@ public class BoardDAOTest {
 		System.out.println(dao);
 		System.out.println(dao.getClass().getName());
 		System.out.println(dao.read(1020));
-		System.out.println(dao.listCriteria(new Criteria()));
+		System.out.println(dao.listCriteria(new Criteria(5,5)));
 	}
 }
