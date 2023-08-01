@@ -16,10 +16,12 @@ import com.bitc.board.util.PageMaker;
 import com.bitc.board.vo.BoardVO;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 
 @Controller
 @RequestMapping("/board/*")
 @RequiredArgsConstructor 
+@Log
 public class BoardController {
 	
 	//@Autowired 
@@ -31,7 +33,8 @@ public class BoardController {
 	public void register()throws Exception{
 		// /board/register
 		// WEB-INF/views/board/register.jsp
-		System.out.println("게시글 작성 페이지 요청");
+		log.info("게시글 작성 페이지 요청");
+		log.warning(" 게시글 정상 작성 실패 ");
 	}
 	
 	/**

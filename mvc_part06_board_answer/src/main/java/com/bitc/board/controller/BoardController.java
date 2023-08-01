@@ -16,10 +16,12 @@ import com.bitc.board.util.PageMaker;
 import com.bitc.board.vo.BoardVO;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 
 @Controller
 @RequestMapping("/board/*")
 @RequiredArgsConstructor 
+@Log
 public class BoardController {
 	
 	//@Autowired 
