@@ -73,4 +73,5 @@ public class RootConfig {
 		return sqlSessionFactory.getObject();
 	}
 	SQL sql = new SQL();
+	
 }
