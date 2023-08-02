@@ -6,6 +6,7 @@
 <aop-project name="mvc_part02_lombok"/>
 <aop-project name="mvc_part01_structure"/>
 <aop-project name="mvc_part01_controller"/>
+<aop-project name="upload_test"/>
 <aop-project name="mvc_part04_db_test"/>
 <aop-project name="mvc_part06_board"/>
 <aop-project name="mvc_part05_filter"/>
