@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bitc.board.service.BoardService;
+import com.bitc.board.service.UploadService;
 import com.bitc.board.util.Criteria;
 import com.bitc.board.util.PageMaker;
 import com.bitc.board.vo.BoardVO;
@@ -130,7 +133,6 @@ public class BoardController {
 		PageMaker pm = bs.getPageMaker(cri);
 		model.addAttribute("pm",pm);
 	}
-
 	
 }
 
