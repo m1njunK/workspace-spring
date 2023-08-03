@@ -1,5 +1,8 @@
 package com.bitc.board.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +26,8 @@ public class UploadController {
 	public void upload(){};
 	
 	@PostMapping("upload")
-	public String upload(@RequestParam("file") MultipartFile file) {
-		return us.upload(file);
+	public String upload(@RequestParam("file") MultipartFile file,HttpServletRequest request) {
+		return us.upload(file,request);
 	}
 	
 	@GetMapping("list")

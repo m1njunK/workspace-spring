@@ -4,8 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.mysql.cj.Session;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,13 +19,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UploadService {
 	
-	public String upload(MultipartFile file) {
+	public String upload(MultipartFile file,HttpServletRequest request){
 		String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
 		long size = file.getSize(); //파일 사이즈
 		//서버에 저장할 파일이름 file extension으로 .jsp이런식의  확장자 명을 구함
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "imgBank";
-
+        String webPath = "";
+		String uploadFolder = "https://shj7242.github.io/2017/12/07/Spring30/";
+        System.err.println(uploadFolder);
+        
 		/*
 		  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
 		  업로드 하는 파일명이 언어 이외의 언어로 되어있을 수 있습니다. 
@@ -37,7 +45,7 @@ public class UploadService {
 		
 		// File saveFile = new File(uploadFolder+"\\"+fileRealName); uuid 적용 전
 		
-		File saveFile = new File(uploadFolder+"/"+uniqueName + fileExtension);  // 적용 후
+		File saveFile = new File(uploadFolder,uniqueName+fileExtension);  // 적용 후
 		File checkDir = saveFile.getParentFile();
 		if(!checkDir.exists()) {
 			checkDir.mkdirs();
