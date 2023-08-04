@@ -59,7 +59,7 @@ public class UploadController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return "board/upload_ok";
+			return "board/home";
 		}
 		
 		@PostMapping("/upload_ok2")
@@ -90,6 +90,6 @@ public class UploadController {
 				}
 			}
 		
-			return "board/upload_ok";
+			return "board/";
 		}
 }
