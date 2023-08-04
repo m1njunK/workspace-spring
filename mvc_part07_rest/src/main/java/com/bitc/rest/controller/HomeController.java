@@ -23,4 +23,9 @@ public class HomeController {
 	@GetMapping("javascript")
 	public void javascript() {}
 	
+	@GetMapping("ajaxTest")
+	public String ajaxTest() {
+		return "ajax";
+	}
+	
 }

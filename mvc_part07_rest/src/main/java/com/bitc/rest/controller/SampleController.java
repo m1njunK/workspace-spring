@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bitc.rest.vo.SampleVO;
@@ -39,5 +41,19 @@ public class SampleController {
 			sampleList.add(vo);
 		}
 		return sampleList;
+	}
+	
+	@PutMapping("/getSample2")
+	@ResponseBody
+	public List<SampleVO> getSample2(@RequestBody SampleVO vo){
+		List<SampleVO> list = new ArrayList<>();
+		list.add(vo);
+		for(int i = 1; i < 11; i++) {
+			SampleVO s = new SampleVO();
+			s.setName("KPG-"+i);
+			s.setAge(100+i);
+			list.add(s);
+		}
+		return list;
 	}
 }
