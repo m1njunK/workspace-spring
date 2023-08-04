@@ -27,7 +27,7 @@ public class UploadService {
         String webPath = "";
 		String uploadFolder = "https://shj7242.github.io/2017/12/07/Spring30/";
         System.err.println(uploadFolder);
-        
+        //
 		/*
 		  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
 		  업로드 하는 파일명이 언어 이외의 언어로 되어있을 수 있습니다. 
