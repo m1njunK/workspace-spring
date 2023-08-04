@@ -21,6 +21,7 @@
 			<label>WRITER</label>
 			<input type="text" name="writer"/>
 		</div>
+
 		<div>
 			<input type="submit" value="글작성 완료"/>
 		</div>
