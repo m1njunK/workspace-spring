@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div>
-		<img src="/resources/3bed2843.jpg" alt="none">	
+		<img src="/img/3bed2843.jpg" alt="none">	
 	</div>
 </body>
 </html>

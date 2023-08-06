@@ -29,16 +29,21 @@ public class UploadController {
 		@GetMapping("/upload")
 		public void form() {}
 		
+		// https://kimvampa.tistory.com/220
+		// https://kimfk567.tistory.com/38?category=1007471
+		// https://kimfk567.tistory.com/110
+		
 		@PostMapping("/upload_ok")
-		public String upload(@RequestParam("file") MultipartFile file) {
+		public String upload(@RequestParam("file") MultipartFile file,MultipartHttpServletRequest request) {
 			String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
 			long size = file.getSize(); //파일 사이즈
 			
 			System.out.println("파일명 : "  + fileRealName);
 			System.out.println("용량크기(byte) : " + size);
-			//서버에 저장할 파일이름 fileextension으로 .jsp이런식의  확장자 명을 구함
+			//서버에 저장할 파일이름 file extension으로 .jsp이런식의  확장자 명을 구함
 			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
 			String uploadFolder = "C:\\test\\upload";
+			
 			
 			/*
 			  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
@@ -55,9 +60,8 @@ public class UploadController {
 			System.out.println("생성된 고유문자열" + uniqueName);
 			System.out.println("확장자명" + fileExtension);
 			
-			// File saveFile = new File(uploadFolder+"\\"+fileRealName); uuid 적용 전
-			
 			File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
+			
 			File checkDir = saveFile.getParentFile();
 			if(!checkDir.exists()) {
 				checkDir.mkdirs();
@@ -70,7 +74,7 @@ public class UploadController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return "board/home";
+			return "home";
 		}
 		
 		@GetMapping
