@@ -13,8 +13,8 @@
 </style>
 </head>
 <body>
-		<div>
-			<img src="C:\test\upload\3bed2843.jpg" alt="none">	
-		</div>
+	<div>
+		<img src="/resources/3bed2843.jpg" alt="none">	
+	</div>
 </body>
 </html>

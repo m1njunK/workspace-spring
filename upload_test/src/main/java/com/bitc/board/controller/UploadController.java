@@ -73,48 +73,6 @@ public class UploadController {
 			return "board/home";
 		}
 		
-		@PostMapping("/upload_ok2")
-		public String upload2(MultipartHttpServletRequest files) {
-			
-			//서버에서 저장 할 경로
-			String uploadFolder = "C:\\test\\upload";
-			List<MultipartFile> list = files.getFiles("files");
-			for(int i = 0; i<list.size(); i++) {
-				String fileRealName = list.get(i).getOriginalFilename();
-				long size = list.get(i).getSize();
-				
-				System.out.println("파일명 :" + fileRealName);
-				System.out.println("사이즈" + size);
-				
-				File saveFile = new File(uploadFolder + "\\" + fileRealName);
-				File checkDir = saveFile.getParentFile();
-				if(!checkDir.exists()) {
-					checkDir.mkdirs();
-					System.out.println("디렉토리 생성완료...");
-				}
-				try {
-					list.get(i).transferTo(saveFile);
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		
-			return "board/";
-		}
-	
-	private final UploadService us;
-	
-	@GetMapping("upload")
-	public void upload(){};
-	
-	@PostMapping("upload")
-	public String upload(@RequestParam("file") MultipartFile file,HttpServletRequest request) {
-		return us.upload(file,request);
-	}
-	
-	@GetMapping("list")
-	public void imgList(){};
-	
+		@GetMapping
+		public void list() {}
 }
