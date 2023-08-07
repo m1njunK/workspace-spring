@@ -95,7 +95,7 @@
 				// {'list':{}, 'pm' : {}}
 				console.log(data);
 				printList(data.list);
-				printPage(data.pm);
+				// printPage(data.pm);
 			});
 		}
 		
@@ -156,7 +156,8 @@
 				str += "<br/><hr/>"+cText;
 				str += "</li>";
 			});
-			$("#comments").html(str);
+			// $("#comments").html(str);
+			$("#comments").append(str);
 		}
 		
 		// 댓글 삽입 요청 처리
@@ -259,6 +260,20 @@
 			});
 		});
 		
+		// 
+		$(window).scroll(function(){
+			let dh = $(document).height();
+			let wh = $(window).height();
+			let wt = $(window).scrollTop();
+				
+			if((wt+wh) >= (dh - 10)){
+				if($("#comments li").size() <= 1){
+					return false;
+				}
+				page++;
+				listPage(page);
+			}	
+		});
 		
 	</script>
 </body>
