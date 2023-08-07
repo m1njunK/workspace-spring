@@ -33,6 +33,8 @@ public class UploadController {
 		// https://kimfk567.tistory.com/38?category=1007471
 		// https://kimfk567.tistory.com/110
 		
+		// https://antananarivo.tistory.com/63
+		
 		@PostMapping("/upload_ok")
 		public String upload(@RequestParam("file") MultipartFile file,MultipartHttpServletRequest request) {
 			String fileRealName = file.getOriginalFilename(); //파일명을 얻어낼 수 있는 메서드!
