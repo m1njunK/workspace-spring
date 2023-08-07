@@ -44,7 +44,7 @@ public class UploadController {
 			System.out.println("용량크기(byte) : " + size);
 			//서버에 저장할 파일이름 file extension으로 .jsp이런식의  확장자 명을 구함
 			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-			String uploadFolder = "C:\\test\\upload";
+			String uploadFolder = "C:\\workspace\\spring\\workspace\\workspace-spring\\upload_test\\src\\main\\webapp\\resources";
 			
 			
 			/*
@@ -65,6 +65,7 @@ public class UploadController {
 			File saveFile = new File(uploadFolder+"\\"+uniqueName + fileExtension);  // 적용 후
 			
 			File checkDir = saveFile.getParentFile();
+			System.out.println(checkDir.getAbsolutePath());
 			if(!checkDir.exists()) {
 				checkDir.mkdirs();
 				System.out.println("디렉토리 생성완료...");
