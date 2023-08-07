@@ -2,8 +2,11 @@ package com.bitc.comment.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.bitc.board.util.Criteria;
 import com.bitc.comment.vo.CommentVO;
@@ -30,12 +33,14 @@ public interface CommentDAO {
 	 * @param  수정할 댓글 정보
 	 * @return  수정된 행의 개수
 	 */
+	@Update("UPDATE tbl_comment SET commentAuth = #{commentAuth}, commentText = #{commentText}, updatedate = now() WHERE cno = #{cno}")
 	int update(CommentVO vo) throws Exception;
 	
 	/**
 	 * @param 삭제할 댓글 번호
 	 * @return 삭제된 행의 개수
 	 */
+	@Delete("DELETE FROM tbl_comment WHERE cno = #{cno}")
 	int delete(int cno) throws Exception;
 
 	/**
@@ -44,14 +49,16 @@ public interface CommentDAO {
 	 * @return - 페이징 처리된 게시글 목록
 	 * @throws Exception
 	 */
-	
-	List<CommentVO> listPage(int bno, Criteria cri) throws Exception;
+	@Select("SELECT * FROM tbl_comment WHERE bno = #{bno} ORDER BY cno DESC limit #{cri.startRow}, #{cri.perPageNum}")
+	List<CommentVO> listPage(
+			@Param("bno") int bno, 
+			@Param("cri") Criteria cri) throws Exception;
 	
 	/**
 	 * @param bno 검색할 게시글 번호
 	 * @return 해당 게시글에 작성된 댓글 개수
 	 */
-	
+	@Select("SELECT count(*) FROM tbl_comment WHERE bno = #{bno}")
 	int totalCount(int bno) throws Exception;
 	
 }

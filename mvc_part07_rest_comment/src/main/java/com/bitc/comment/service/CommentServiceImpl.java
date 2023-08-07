@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.bitc.board.util.Criteria;
+import com.bitc.board.util.PageMaker;
 import com.bitc.comment.dao.CommentDAO;
 import com.bitc.comment.vo.CommentVO;
 
@@ -36,20 +37,27 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public String updateComment(CommentVO vo) throws Exception {
-
-		return null;
+		return getResult(dao.update(vo));
 	}
 
 	@Override
-	public String deleteComment(CommentVO vo) throws Exception {
-
-		return null;
+	public String deleteComment(int cno) throws Exception {
+		return getResult(dao.delete(cno));
 	}
 
 	@Override
 	public List<CommentVO> commentListPage(int bno, Criteria cri) throws Exception {
-
-		return null;
+		return dao.listPage(bno, cri);
+	}
+	
+	@Override
+	public PageMaker getPageMaker(int bno, Criteria cri) throws Exception {
+		int totalCount = dao.totalCount(bno);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setDisplayPageNum(5);
+		pageMaker.setTotalCount(totalCount);
+		return pageMaker;
 	}
 
 }

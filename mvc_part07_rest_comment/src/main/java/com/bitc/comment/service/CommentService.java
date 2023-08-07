@@ -3,6 +3,7 @@ package com.bitc.comment.service;
 import java.util.List;
 
 import com.bitc.board.util.Criteria;
+import com.bitc.board.util.PageMaker;
 import com.bitc.comment.vo.CommentVO;
 
 public interface CommentService {
@@ -25,7 +26,7 @@ public interface CommentService {
 	/**
 	 * 댓글 삭제
 	 */
-	String deleteComment(CommentVO vo) throws Exception;
+	String deleteComment(int cno) throws Exception;
 	
 	/**
 	 * 페이징 처리된 댓글 리스트 
@@ -33,4 +34,6 @@ public interface CommentService {
 	List<CommentVO> commentListPage(
 			int bno, Criteria cri
 			) throws Exception;
+	
+	PageMaker getPageMaker(int bno, Criteria cri) throws Exception;
 }
