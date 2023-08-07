@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,12 +47,13 @@ public class UploadController {
 			//서버에 저장할 파일이름 file extension으로 .jsp이런식의  확장자 명을 구함
 			String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
 			String uploadFolder = "C:\\workspace\\spring\\workspace\\workspace-spring\\upload_test\\src\\main\\webapp\\resources";
+	
 			
 			
 			/*
 			  파일 업로드시 파일명이 동일한 파일이 이미 존재할 수도 있고 사용자가 
 			  업로드 하는 파일명이 언어 이외의 언어로 되어있을 수 있습니다. 
-			  타인어를 지원하지 않는 환경에서는 정산 동작이 되지 않습니다.(리눅스가 대표적인 예시)
+			  타인어를 지원하지 않는 환경에서는 정상 동작이 되지 않습니다.(리눅스가 대표적인 예시)
 			  고유한 랜던 문자를 통해 db와 서버에 저장할 파일명을 새롭게 만들어 준다.
 			 */
 			
