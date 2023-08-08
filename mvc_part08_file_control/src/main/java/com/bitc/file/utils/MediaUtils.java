@@ -21,6 +21,10 @@ public class MediaUtils {
 		mediaMap.put("PNG",MediaType.IMAGE_PNG);		//image/png
 	}
 	
+	/**
+	 * @param -	업로드된 파일 확장자 명
+	 * @return - key 값이 확장자랑 일치하는
+	 */
 	public static MediaType getMediaType(String ext) {
 		return mediaMap.get(ext.toUpperCase());
 	}
