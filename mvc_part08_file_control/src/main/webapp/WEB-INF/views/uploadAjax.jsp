@@ -44,7 +44,6 @@
 					alert("업로드 할 수 없는 크기의 파일입니다.");
 					return;
 				}
-				
 				formData.append("files",file);
 			}
 			
@@ -58,10 +57,34 @@
 				success : function(result){
 					// upload 된 파일 이름 List
 					console.log(result);
+					let str = "";
+					$(result).each(function(){
+						console.log(this);
+						if(checkImageType(this)){
+							console.log("이미지 파일");
+						}else{
+							console.log("일반 파일");
+						}
+					});
 				}
 			});
-			
 		});
+		
+		// 업로드된 파일이 이미지 파일인지 확인
+		function checkImageType(fileName){
+			let pattern = /jpg|jpeg|gif|png/i;
+			let result = fileName.match(pattern);
+			console.log(result ? '이미지' : '안이미지');
+			
+			let img = ['jpg','jpeg','png','gif'];
+			for(let i = 0; i < img.length; i++){
+				if(fileName.toLowerCase().endsWith(img[i])){
+					return true;
+				}	
+			}
+			return false;
+		}		
+		
 	</script>
 </body>
 </html>

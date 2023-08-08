@@ -52,7 +52,7 @@ public class FileUtils {
 	}
 
 	private static String makeThumbnail(
-			String realPath, String datePath, String savedName, String ext) throws IOException {
+		String realPath, String datePath, String savedName, String ext) throws IOException {
 		String name = "";
 		// 원본이미지 정보
 		File file = new File(realPath+datePath,savedName);
@@ -71,7 +71,7 @@ public class FileUtils {
 		
 		String thumbnailImage = realPath+datePath+File.separator+"s_"+savedName;
 		// ImageIO.write(출력할 이미지 데이터, 확장자, 출력 위치);
-		ImageIO.write(sourceImage, ext, file);
+		ImageIO.write(sourceImage, ext, new File(thumbnailImage));
 		name = thumbnailImage.substring(realPath.length()).replace(File.separatorChar, '/');
 		System.out.println(name);
 		return name;
