@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=mvc_part03_DI_IOC/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.di.dao{TestDAO.java[TestDAO" modifiers="513" timestamp="1690262226090"/>
-    <typeInfo handle="=mvc_part06_board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.board.service{BoardService.java[BoardService" modifiers="513" timestamp="1690761477989"/>
-    <typeInfo handle="=mvc_part06_board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.board.dao{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1690761477958"/>
-    <typeInfo handle="=mvc_part06_board_answer/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.board.service{BoardService.java[BoardService" modifiers="513" timestamp="1690518627336"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>
