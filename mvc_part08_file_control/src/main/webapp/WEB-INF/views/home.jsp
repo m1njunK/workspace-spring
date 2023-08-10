@@ -10,5 +10,6 @@
 	<h3>File Control Home</h3>
 	<a href="uploadForm">Form Data Transfer</a> <br/>
 	<a href="uploadAjax">AJAX Data Transfer</a>
+	<a href="profile">Profile</a>
 </body>
 </html>

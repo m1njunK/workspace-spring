@@ -12,7 +12,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,6 +41,17 @@ public class AjaxController {
 		}
 	}
 	
+	@PostMapping("uploadAjax")
+	public ResponseEntity<String> uploadAjax(
+			MultipartFile file
+		) throws Exception{
+		
+		String savedName = FileUtils.uploadFile(realPath, file);
+		HttpHeaders header = new HttpHeaders();
+		header.add("Content-Type","text/plain;charset=utf-8");
+		return new ResponseEntity<>(savedName,HttpStatus.OK);
+	}
+	
 	// uploadFiles
 	@PostMapping("uploadFiles")
 	public ResponseEntity<List<String>> uploadFiles(
@@ -47,9 +61,35 @@ public class AjaxController {
 		for(MultipartFile f : files) {
 			saves.add(FileUtils.uploadFile(realPath, f));
 		}
+		// response 응답 헤더 정보를 저장하는 class
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(new MediaType("application","json",Charset.forName("utf-8")));
 		return new ResponseEntity<>(saves,headers,HttpStatus.CREATED); 
+	}
+	
+	@GetMapping("downloadFile")
+	public ResponseEntity<byte[]> uploadFile(String fileName) throws Exception {
+		
+		return new ResponseEntity<>(
+				FileUtils.getBytes(realPath, fileName),
+				FileUtils.getHeaders(fileName),
+				HttpStatus.OK
+		);
+	}
+	
+	@DeleteMapping(value="deleteFile",produces = "text/plain;charset=utf-8")
+	public ResponseEntity<String> deleteFile(
+			@RequestBody String fileName
+			)throws Exception{
+		ResponseEntity<String> entity = null;
+		System.out.println(fileName);
+		boolean isDeleted = FileUtils.deleteFile(realPath, fileName);
+		if(isDeleted) {
+			entity = new ResponseEntity<String>("삭제성공",HttpStatus.OK);
+		}else {
+			entity = new ResponseEntity<String>("삭제실패",HttpStatus.CREATED);
+		}
+		return entity;
 	}
 	
 }
