@@ -3,13 +3,21 @@
 <aop-project name="mvc_part03_DI_IOC"/>
 <aop-project name="mvc_part01_controller"/>
 <aop-project name="mvc_part04_db_test"/>
+<aop-project name="mvc_part09_AOP_Transaction">
+<aspect-definition advice-class-name="com.bitc.aop.AOPAdvice" advice-method-name="startLog(org.aspectj.lang.JoinPoint)" advice-type="BEFORE" aspect-end-line-number="30" aspect-name="AOPAdvice" aspect-start-line-number="30" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" pointcut-expression="execution(* com.bitc.service.*.*(..))" proxy-target-class="false">
+<aop-reference advice-type="BEFORE" bean="1:BeansModel|2:mvc_part09_AOP_Transaction|3:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml|7:beans:beans:10|8:messageServiceImpl:10" bean-file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" source="=mvc_part09_AOP_Transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.aop{AOPAdvice.java[AOPAdvice~startLog~QJoinPoint;" source-start-line="22" target="=mvc_part09_AOP_Transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.service{MessageServiceImpl.java[MessageServiceImpl~addMessage~QMessageVO;" target-start-line="22"/>
+<aop-reference advice-type="BEFORE" bean="1:BeansModel|2:mvc_part09_AOP_Transaction|3:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml|7:beans:beans:10|8:messageServiceImpl:10" bean-file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" source="=mvc_part09_AOP_Transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.aop{AOPAdvice.java[AOPAdvice~startLog~QJoinPoint;" source-start-line="22" target="=mvc_part09_AOP_Transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.service{MessageServiceImpl.java[MessageServiceImpl~readMessage~QString;~I" target-start-line="40"/>
+<aop-reference advice-type="BEFORE" bean="1:BeansModel|2:mvc_part09_AOP_Transaction|3:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml|7:beans:beans:10|8:messageServiceImpl:10" bean-file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" bean-start-line="10" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/mvc_part09_AOP_Transaction/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml" source="=mvc_part09_AOP_Transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.aop{AOPAdvice.java[AOPAdvice~startLog~QJoinPoint;" source-start-line="22" target="=mvc_part09_AOP_Transaction/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.bitc.service{MessageServiceImpl.java[MessageServiceImpl~list" target-start-line="35"/>
+</aspect-definition>
+</aop-project>
 <aop-project name="mvc_part06_board_java"/>
+<aop-project name="mvc_part07_rest_comment"/>
 <aop-project name="mvc_part06_board_answer"/>
 <aop-project name="mvc_part02_lombok"/>
 <aop-project name="mvc_part01_structure"/>
 <aop-project name="upload_test"/>
 <aop-project name="mvc_part07_rest"/>
-<aop-project name="mvc_part06_board"/>
 <aop-project name="mvc_part08_file_control"/>
+<aop-project name="mvc_part06_board"/>
 <aop-project name="mvc_part05_filter"/>
 </aop-reference-model>
