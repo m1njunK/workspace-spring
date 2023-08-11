@@ -29,3 +29,20 @@ VALUES('id003','pw003','SPIDER MAN');
 SELECT * FROM TBL_USER;
 
 SELECT * FROM TBL_MESSAGE;
+
+/*
+   1 id001 pw001 IRON MAN       45
+   2 id002 pw002 THOR           85
+   3 id003 pw003 SPIDER MAN     20
+   
+   1 id001 pw001 IRON MAN       45
+   2 id002 pw002 THOR           85
+   3 id003 pw003 SPIDER MAN     30
+   
+   1 id001 pw001 IRON MAN       45
+   2 id002 pw002 THOR           85
+   3 id003 pw003 SPIDER MAN     40
+
+*/
+
+

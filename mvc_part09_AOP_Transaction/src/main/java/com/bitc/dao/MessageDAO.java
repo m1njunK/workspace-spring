@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.bitc.vo.MessageVO;
 
@@ -18,12 +19,14 @@ public interface MessageDAO {
 	/**
 	 * @param mno - 메세지 번호로 메세지 수신확인
 	 */
+	@Update("UPDATE tbl_message SET opendate = now() WHERE mno = #{mno}")
 	void updateMessage(int mno) throws Exception;
 	
 	/**
 	 * @param mno - 확인할 메세지 번호
 	 * @return - mno가 일치하는 하나의 메세지 정보 반환
 	 */
+	@Select("SELECT * FROM tbl_message WHERE mno = #{mno}")
 	MessageVO readMessage(int mno) throws Exception;
 
 	/**

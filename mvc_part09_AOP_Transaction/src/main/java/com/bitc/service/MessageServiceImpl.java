@@ -3,6 +3,7 @@ package com.bitc.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bitc.dao.MessageDAO;
 import com.bitc.dao.UserDAO;
@@ -18,6 +19,7 @@ public class MessageServiceImpl implements MessageService{
 	private final UserDAO userDAO;
 	private final MessageDAO messageDAO;
 	
+	@Transactional
 	@Override
 	public void addMessage(MessageVO vo) throws Exception {
 		System.out.println("addMessage Service 시작");
@@ -38,7 +40,23 @@ public class MessageServiceImpl implements MessageService{
 	@Override
 	public MessageVO readMessage(String uid, int mno) throws Exception {
 		
-		return null;
+		MessageVO message = messageDAO.readMessage(mno);
+		if(message.getOpendate() != null) {
+			throw new NullPointerException("이미 읽은 메세지 입니다.");
+		}
+		
+		// opendate => now()
+		messageDAO.updateMessage(mno);
+
+		// 수신자 포인트 증가 +5
+		UserVO vo = new UserVO();
+		vo.setUid(uid);
+		vo.setUpoint(5);
+		userDAO.updatePoint(vo);
+		
+		message = messageDAO.readMessage(mno);
+		
+		return message;
 	}
 	
 }
