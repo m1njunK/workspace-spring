@@ -37,7 +37,7 @@ public class MessageController {
 		} catch (Exception e) {
 			HttpHeaders header = new HttpHeaders();
 			header.setContentType(MediaType.APPLICATION_JSON);
-			entity = new ResponseEntity<>("등록실패",header,HttpStatus.BAD_REQUEST);
+			entity = new ResponseEntity<>(e.getMessage(),header,HttpStatus.BAD_REQUEST);
 		}
 		
 		return entity;

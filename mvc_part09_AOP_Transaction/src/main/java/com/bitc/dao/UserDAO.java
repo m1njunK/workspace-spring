@@ -1,5 +1,6 @@
 package com.bitc.dao;
 
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.bitc.vo.UserVO;
@@ -14,5 +15,6 @@ public interface UserDAO {
 	/**
 	 * @param uid 검색할 사용자 id
 	 */
+	@Select("SELECT * FROM tbl_user WHERE uid = #{uid}")
 	UserVO checkUser(String uid) throws Exception;
 }
