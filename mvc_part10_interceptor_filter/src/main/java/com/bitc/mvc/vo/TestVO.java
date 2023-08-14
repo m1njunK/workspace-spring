@@ -4,7 +4,7 @@ public class TestVO {
 	
 	private int a;
 	private String b;
-
+	
 	public int getA() {
 		return a;
 	}
@@ -17,7 +17,7 @@ public class TestVO {
 	public void setB(String b) {
 		this.b = b;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "TestVO [a=" + a + ", b=" + b + "]";

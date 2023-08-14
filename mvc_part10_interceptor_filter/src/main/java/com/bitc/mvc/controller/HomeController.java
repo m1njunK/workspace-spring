@@ -1,9 +1,5 @@
 package com.bitc.mvc.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,7 +14,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home() {
 		logger.info("HomeController home call");
 		return "home";
 	}
@@ -26,7 +22,7 @@ public class HomeController {
 	@GetMapping("test1")
 	public String test1() {
 		System.out.println("HomeController test1 요청");
-
+		
 		System.out.println("HomeController test1 요청 처리 완료");
 		return "home";
 	}
@@ -47,3 +43,19 @@ public class HomeController {
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

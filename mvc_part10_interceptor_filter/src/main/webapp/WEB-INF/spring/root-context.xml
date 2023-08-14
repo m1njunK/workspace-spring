@@ -5,5 +5,5 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="vo" class="com.bitc.mvc.vo.TestVO"/>
-		
+	
 </beans>

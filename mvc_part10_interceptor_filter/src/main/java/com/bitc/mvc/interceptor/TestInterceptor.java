@@ -14,59 +14,61 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bitc.mvc.vo.TestVO;
 
 public class TestInterceptor implements HandlerInterceptor{
-
+	
 	@Autowired(required = false)
 	TestVO vo;
-	
+
 	/**
 	 * Servlet 이 Controller mapping method를 호출하기 전 실행
 	 * @return mapping method 호출 여부 - true 호출, false 미호출
 	 */
-	
 	@Override
 	public boolean preHandle(
 			HttpServletRequest request, 
 			HttpServletResponse response, 
 			Object handler)
 			throws Exception {
-		System.out.println("TestInterceptor preHandler START ====");
-		HandlerMethod method = (HandlerMethod) handler;
+		System.out.println("TestInterceptor preHandler START =====  ");
+		HandlerMethod method = (HandlerMethod)handler;
 		Method methodObj = method.getMethod();
 		System.out.println("controller : " + method.getBean());
 		System.out.println("methodObj : " + methodObj);
+		System.out.println("interceptor prehandle vo : " + vo);
 		
-		String command = request.getRequestURI().substring(request.getContextPath().length()+1);
+		String command = request.getRequestURI()
+						.substring(request.getContextPath().length()+1);
 		System.out.println(command);
 		if(command.equals("test1")) {
 			response.sendRedirect("test2");
-			System.out.println("TestInterceptor preHandler return false");
+			System.out.println("TestInterceptor preHandler return false ");
 			return false;
 		}
 		
-		System.out.println("TestInterceptor preHandler END ====");
+		System.out.println("TestInterceptor preHandler END =====  ");
 		return true;
 	}
 
 	/**
-	 * Controller에 mapping method가 호출 완료 되고 난 후
+	 * Controller에 mapping method가 호출 완료 되고 난 후 
 	 * servlet으로 반환 값이 전달 되기 전에 호출
 	 */
-	
 	@Override
 	public void postHandle(
 			HttpServletRequest request, 
-			HttpServletResponse response, 
-			Object handler,
+			HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		System.out.println("TestInterceptor postHandle START ===");
 		System.out.println(modelAndView);
+		
 		Map<String, Object> map = modelAndView.getModel();
+		
 		for(String key : map.keySet()) {
 			System.out.println("key : " + key);
 			System.out.println("value : " + map.get(key));
 		}
 		String viewName = modelAndView.getViewName();
-		System.out.println(viewName);
+		System.out.println("viewName : " + viewName);
+		
 		if(viewName.equals("result")) {
 			modelAndView.setViewName("home");
 		}
@@ -77,16 +79,14 @@ public class TestInterceptor implements HandlerInterceptor{
 			modelAndView.addObject("result","postHandle job");
 		}
 		String result1 = (String) request.getAttribute("result1");
-		System.out.println("Post Handle result1 : " + result1);
-		
-		System.out.println("TestInterceptor postHandle START ===");
+		System.out.println("Post Handle resutl1 : " + result1);
+		System.out.println("TestInterceptor postHandle END ===");
 	}
-	
+
 	/**
 	 * response 응답 정보가 filter로 전달되기 전 호출
 	 * servlet의 응답(출력)이 완료되고 난 후 호출
 	 */
-
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
@@ -97,4 +97,22 @@ public class TestInterceptor implements HandlerInterceptor{
 		System.out.println("TestInterceptor afterCompletion END ===");
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }
+
+
+
+
+

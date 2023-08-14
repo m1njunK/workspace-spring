@@ -8,12 +8,29 @@
 </head>
 <body>
 	<h3>result = ${result}</h3>
-	<a href="test1">test1</a>
-	<a href="test2">test2</a>
-	<a href="test3">test3</a>
+	<a href="test1">test1</a> <br/>
+	<a href="test2">test2</a> <br/>
+	<a href="test3">test3</a> <br/>
 </body>
 </html>
 <%
 	System.out.println("HOME JSP 출력");
-	request.setAttribute("result1","HOME JSP VALUE");
+	request.setAttribute("result1" , "Home JSP VALUE");
 %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
