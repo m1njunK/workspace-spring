@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="미확인"/>
+		<item key="selection" value="Intercept"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="intercept"/>
+			<item value="p"/>
+			<item value="aspect"/>
+			<item value="a="/>
+			<item value="jstl"/>
+			<item value="servlet"/>
+			<item value="getComment"/>
+			<item value="getcomment"/>
+			<item value="listPage"/>
+			<item value="listpage"/>
+			<item value="all"/>
 			<item value="미확인"/>
 			<item value="aspectj"/>
 			<item value="uplodedList"/>
 			<item value="tolower"/>
-			<item value="Thumbnail"/>
-			<item value="thumbnail"/>
-			<item value="name"/>
-			<item value="uploadfilename"/>
-			<item value="servlet"/>
-			<item value="Mapper"/>
-			<item value="mapper"/>
-			<item value="lombok"/>
-			<item value="md"/>
-			<item value="jstl"/>
-			<item value="parseInt"/>
 		</list>
 		<list key="replacehistory">
 			<item value="uploadedList"/>
