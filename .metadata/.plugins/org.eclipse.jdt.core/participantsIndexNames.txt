@@ -35,6 +35,8 @@ C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.js
 \mvc_part03_DI_IOC\src\main\java
 C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3060605323.index
 \mvc_part06_board\src\main\java
+C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4014543915.index
+\mvc_part10_interceptor_filter\src\main\java
 C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3460195497.index
 \mvc_part04_db_test\src\main\java
 C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3957977426.index
