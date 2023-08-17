@@ -14,8 +14,9 @@
 	<a href="<c:url value='/'/>">HOME</a> 
 	<c:choose>
 		<c:when test="${not empty sessionScope.userInfo}">
+			&nbsp;&nbsp;<span>${userInfo.uname}</span>&nbsp;&nbsp;
 			<a href="#">글작성</a>
-			<a href="#">SIGN OUT</a>
+			<a href="<c:url value='/user/signOut'/>">SIGN OUT</a>
 		</c:when>
 		<c:otherwise>
 			<a href="<c:url value='/user/signIn'/>">SIGN IN</a>
@@ -24,7 +25,13 @@
 	</c:choose>
 	<a href="#">게시물 보러 가기</a>
 	<br/><hr/>
-
+<script>
+	const invalidate = '${invalidate}';
+	if(invalidate != ''){
+		alert(invalidate);
+		location.href='<c:url value="/user/signOut"/>';
+	}
+</script>
 
 
 

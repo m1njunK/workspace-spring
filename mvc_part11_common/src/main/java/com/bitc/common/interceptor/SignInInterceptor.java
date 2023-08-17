@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bitc.common.session.MySessionEventListener;
 import com.bitc.user.vo.LoginDTO;
 import com.bitc.user.vo.UserVO;
 
@@ -49,6 +50,13 @@ public class SignInInterceptor implements HandlerInterceptor {
 		LoginDTO dto = (LoginDTO) modelObj.get("loginDTO");
 		
 		if(userInfo != null) {
+			// 로그인 성공 시 기존에 동리한 id로 로그인된 사용자 정보가 존재하면 삭제
+			boolean result = MySessionEventListener.expireDuplicatedSession(userInfo.getUid(), session.getId());
+			if(result) {
+				System.out.println("중복 제거");
+			}else {
+				System.out.println("첫 로그인");
+			}
 			// 자동 로그인 요청 처리
 			if(dto.isUserCookie()) {
 				Cookie cookie = new Cookie("signInCookie",userInfo.getUid());
