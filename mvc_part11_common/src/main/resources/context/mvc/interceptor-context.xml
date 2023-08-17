@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- "http://www.springframework.org/schema/beans -> mvc로 변경 -->	         
+<!-- xmlns:mvc -> xmlns:beans로 변경 -->
+<!-- beans -> beans:beans 변경 -->
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- interceptor-context.xml -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/signUpPost"/>
+			<beans:bean class="com.bitc.common.interceptor.SignUpInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/user/signInPost"/>
+			<beans:bean class="com.bitc.common.interceptor.SignInInterceptor"/>
+		</interceptor>
+	</interceptors>	
+</beans:beans>
