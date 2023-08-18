@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 	<c:choose>
 		<c:when test="${not empty sessionScope.userInfo}">
 			&nbsp;&nbsp;<span>${userInfo.uname}</span>&nbsp;&nbsp;
-			<a href="#">글작성</a>
+			<a href="<c:url value='/board/register'/>">글작성</a>
 			<a href="<c:url value='/user/signOut'/>">SIGN OUT</a>
 		</c:when>
 		<c:otherwise>
@@ -23,7 +24,7 @@
 			<a href="<c:url value='/user/signUp'/>">SIGN UP</a>
 		</c:otherwise>
 	</c:choose>
-	<a href="#">게시물 보러 가기</a>
+	<a href="<c:url value='/board/listReply'/>">게시물 보러 가기</a>
 	<br/><hr/>
 <script>
 	const invalidate = '${invalidate}';

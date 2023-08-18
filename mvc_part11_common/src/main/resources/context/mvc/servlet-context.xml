@@ -22,6 +22,11 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- multipart-formdata -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/>
+	</beans:bean>
+	
 	<!-- 모든 패키지에 컨트롤러 패키지 검색 -->
 	<context:component-scan base-package="com.bitc.*.controller" />
 	

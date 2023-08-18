@@ -35,6 +35,15 @@
 	
 	<mybatis-spring:scan base-package="com.bitc.*.mapper"/>
 	
+	<tx:annotation-driven />
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="ds" />	
+	</bean>
+	
+	<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="attach"/>
+	</bean>
 </beans>
 
 
