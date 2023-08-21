@@ -44,3 +44,7 @@ CREATE TABLE tbl_attach(
 	CONSTRAINT fb_tbl_attch FOREIGN KEY(bno)
 	REFERENCES re_tbl_board(bno)
 );
+
+commit;
+
+select * from tbl_attach

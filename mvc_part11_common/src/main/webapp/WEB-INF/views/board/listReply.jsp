@@ -39,6 +39,12 @@
 								<td>${board.bno}</td>
 								<td>
 									<a href="readPage?bno=${board.bno}">
+										<c:if test="${board.depth != 0}">
+											<c:forEach var="i" begin="1" end="${board.depth}">
+												&nbsp;&nbsp;&nbsp;
+											</c:forEach>
+											└>
+										</c:if>
 										${board.title}
 									</a>
 								</td>
@@ -54,7 +60,9 @@
 								<th></th>
 								<th>삭제된 게시물 입니다.</th>
 								<th></th>
-								<th>${board.updatedate}</th>
+								<th>
+							  		<f:formatDate value="${board.updatedate}" pattern="yyyy-MM-dd HH:mm"/>
+								</th>
 								<th></th>
 							</tr>							
 						</c:otherwise>

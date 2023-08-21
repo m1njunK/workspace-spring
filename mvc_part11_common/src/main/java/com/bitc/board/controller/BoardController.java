@@ -55,4 +55,43 @@ public class BoardController {
 		model.addAttribute("board",bs.readBoard(bno));
 		return "board/readPage";
 	}
+	
+	@PostMapping("remove")
+	public String remove(int bno) throws Exception{
+		bs.remove(bno);
+		return "redirect:/board/listReply";
+	}
+	
+	@GetMapping("modify")
+	public String modify(int bno,Model model) throws Exception{
+		model.addAttribute("board",bs.readBoard(bno));
+		return "board/modify";
+	}
+	
+	@PostMapping("modify")
+	public String modify(BoardVO vo,RedirectAttributes rttr) throws Exception{
+		// 게시글 수정 처리
+		bs.modify(vo);
+		// 상세보기 페이지에 게시글 번호 파라미터 전달
+		rttr.addAttribute("bno",vo.getBno());
+		// 게시글 상제보기 페이지로 리다이렉트
+		return "redirect:/board/read";
+	}
+	
+	@GetMapping("replyRegister")
+	public String replyRegister(int bno,Model model) throws Exception{
+		// bno == 답변을 작성하려는 원본글 번호
+		model.addAttribute("board",bs.readBoard(bno));
+		return "board/replyRegister";
+	}
+	
+	@PostMapping("replyRegister")
+	public String replyRegister(BoardVO vo) throws Exception{
+		// 답변 글 등록
+		bs.replyRegister(vo);
+		// 답변글 등록 완료 시 게시글 목록 페이지로 이동
+		return "redirect:/board/listReply";
+	}
+	
 }
+

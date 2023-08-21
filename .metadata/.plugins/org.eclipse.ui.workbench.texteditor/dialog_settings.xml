@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="reply"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="dto."/>
-			<item value="intercept"/>
-			<item value="p"/>
-			<item value="aspect"/>
-			<item value="a="/>
-			<item value="jstl"/>
-			<item value="servlet"/>
-			<item value="getComment"/>
-			<item value="getcomment"/>
-			<item value="listPage"/>
-			<item value="listpage"/>
-			<item value="all"/>
-			<item value="미확인"/>
-			<item value="aspectj"/>
-			<item value="uplodedList"/>
+			<item value="Reply"/>
+			<item value="reply"/>
+			<item value="file"/>
+			<item value="글ㅆ"/>
+			<item value="글"/>
+			<item value="작성"/>
+			<item value="modify"/>
+			<item value="deleteBtn"/>
+			<item value="#replyBtn"/>
+			<item value=""/>
+			<item value="Btn"/>
+			<item value="rep"/>
+			<item value="other"/>
+			<item value="삭제된"/>
+			<item value="delbtn"/>
 		</list>
 		<list key="replacehistory">
 			<item value="uploadedList"/>
