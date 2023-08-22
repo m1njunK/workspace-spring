@@ -95,7 +95,7 @@
 				// {'list':{}, 'pm' : {}}
 				console.log(data);
 				printList(data.list);
-				// printPage(data.pm);
+				printPage(data.pm);
 			});
 		}
 		
@@ -261,7 +261,7 @@
 		});
 		
 		// 
-		$(window).scroll(function(){
+/* 		$(window).scroll(function(){
 			let dh = $(document).height();
 			let wh = $(window).height();
 			let wt = $(window).scrollTop();
@@ -273,7 +273,7 @@
 				page++;
 				listPage(page);
 			}	
-		});
+		}); */
 		
 	</script>
 </body>

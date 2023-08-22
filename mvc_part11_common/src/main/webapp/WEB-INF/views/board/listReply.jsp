@@ -45,7 +45,7 @@
 											</c:forEach>
 											└>
 										</c:if>
-										${board.title}
+										<c:out value="${board.title}"/>
 									</a>
 								</td>
 								<td>${board.writer}</td>

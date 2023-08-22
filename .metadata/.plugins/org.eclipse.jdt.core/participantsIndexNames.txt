@@ -17,6 +17,8 @@ C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.js
 \mvc_part02_lombok\src\main\java
 C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3460195497.index
 \mvc_part04_db_test\src\main\java
+C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4196213875.index
+\mvc_part11_common\src\main\java
 C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1439546668.index
 \project\src\main\java
 C:\workspace\spring\workspace\workspace-spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\106746051.index

@@ -20,6 +20,28 @@
 			<mapping path="/user/signInPost"/>
 			<beans:bean class="com.bitc.common.interceptor.SignInInterceptor"/>
 		</interceptor>
+
+		<!-- AuthInterceptor -->
+		<interceptor>
+			<mapping path="/board/*"/>
+			<!-- 제외 경로 -->
+			<exclude-mapping path="/board/listReply"/>
+			<exclude-mapping path="/board/readPage"/>
+			<exclude-mapping path="/board/read"/>
+			<beans:bean class="com.bitc.common.interceptor.AuthInterceptor"/>
+		</interceptor>
+		
+		<!-- 게시글 상세보기 페이지 이동시 csrf_token 발급 -->
+		<interceptor>
+			<mapping path="/board/read"/>
+			<beans:bean class="com.bitc.common.interceptor.CreateTokenInterceptor"/>			
+		</interceptor>
+
+		<!-- 게시글 삭제 요청 시 인증 토큰 확인 -->
+		<interceptor>
+			<mapping path="/board/remove"/>
+			<beans:bean class="com.bitc.common.interceptor.CheckTokenInterceptor"/>			
+		</interceptor>
 		
 		<interceptor>
 			<mapping path="/**"/>

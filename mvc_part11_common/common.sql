@@ -48,3 +48,15 @@ CREATE TABLE tbl_attach(
 commit;
 
 select * from tbl_attach
+
+CREATE TABLE IF NOT EXISTS re_tbl_comment(
+	cno INT PRIMARY KEY AUTO_INCREMENT,		-- 댓글 번호
+	bno INT NOT NULL,					 	-- 댓글 작성 게시글 번호	
+	commentText TEXT NOT NULL,				-- 댓글 내용
+	commentAuth VARCHAR(50) NOT NULL,		-- 작성자
+	regdate TIMESTAMP NOT NULL DEFAULT now(),	-- 작성시간
+	updatedate TIMESTAMP NOT NULL DEFAULT now(),	-- 수정시간
+	CONSTRAINT fk_re_tbl_bno FOREIGN KEY(bno) 
+	REFERENCES re_tbl_board(bno),
+	INDEX(bno)
+);
