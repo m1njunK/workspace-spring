@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- 
+		SMTP(Simple Mail Transfer Protocol) 
+		// 인터넷에서 이메일을 전송하기 위한 프로토콜
+		// 메일 서버간 송수신 또는 클라이언트에서 메일 서버로 보낼 때 사용.
+		
+		SSL == 465
+		TLS == 587
+	-->
+	<!-- 기본 적인 설정을 bean으로 등록 시켜 놓고 메일 발송이 필요할때 주입받아 사용하는 class -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"/>
+		<property name="port" value="587"/>
+		<property name="username" value="rlaalswns0730@gmail.com"/>
+		<property name="password" value="veokvncyexkfkgez"/>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>
