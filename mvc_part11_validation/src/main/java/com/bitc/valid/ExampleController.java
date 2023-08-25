@@ -32,7 +32,7 @@ public class ExampleController {
 
     public ExampleController() {
         // 반드시 계정 내 등록된 유효한 API 키, API Secret Key를 입력해주셔야 합니다!
-        this.messageService = NurigoApp.INSTANCE.initialize("NCST5HRNYU6RWLS9", "QC9WLXEWFDZPBI0N9FTNOJPRXILMELFW", "https://api.coolsms.co.kr");
+        this.messageService = NurigoApp.INSTANCE.initialize("############", "############", "https://api.coolsms.co.kr");
     }
 
     /**
@@ -94,7 +94,7 @@ public class ExampleController {
     public SingleMessageSentResponse sendOne() {
         Message message = new Message();
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
-        message.setFrom("01064491630");
+        message.setFrom("010#############");
         message.setTo("01000000000");
         message.setText("test");
 
