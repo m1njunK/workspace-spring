@@ -1,5 +1,5 @@
-GitRepositoriesView.GitDirectories=C\:\\workspace\\spring\\workspace\\workspace-spring\\.git;C\:\\Users\\admin\\git\\final_project\\.git;
-GitRepositoriesView.GitDirectories.relative=.git;C\:\\Users\\admin\\git\\final_project\\.git;
+GitRepositoriesView.GitDirectories=C\:\\workspace\\spring\\workspace\\workspace-spring\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;
 RepositoryGroups.uuids=
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
